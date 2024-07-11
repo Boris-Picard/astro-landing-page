@@ -1,22 +1,43 @@
 ---
-import MainHead from "./mainHead.astro";
-export interface Props {
+// import Footer from '@components/Footer.astro';
+import Navbar from "../components/Navigation.astro";
+import { SEO } from "astro-seo";
+
+export interface LayoutProps {
   title: string;
-  seoTitle: string;
-  seoDesc: string;
 }
 
-const { title, seoTitle, seoDesc } = Astro.props;
+const { title = "John Doe | Web developer" } = Astro.props as LayoutProps;
 ---
 
-<html lang="en">
-  <MainHead title={title} seoDesc={seoDesc} seoTitle={seoTitle} />
-  <body class="container bg-zinc-900">
+<!doctype html>
+<html lang="en" class="scroll-smooth" data-testid="html">
+  <head>
+    <SEO
+      title="A Very Descriptive Title"
+      description="A heavily optimized description full of well-researched keywords."
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>{title}</title>
+  </head>
+  <body
+    class="mx-auto max-w-screen-xl bg-white px-5 font-sans text-white dark:bg-black xs:text-[16px] md:text-[18px]"
+  >
+    <Navbar />
     <slot />
-    <style>
-      body {
-        font-family: "Montserrat";
+    <!-- <Footer /> -->
+    <style is:global>
+      img {
+        content-visibility: auto;
       }
     </style>
   </body>
-</html>
+  </html>
+  
+  <script src="../../node_modules/preline/dist/preline.js"></script>
+  
