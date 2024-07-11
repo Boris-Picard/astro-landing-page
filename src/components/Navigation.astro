@@ -1,10 +1,48 @@
 ---
-import ToggleDarkMode from "./ui/ToggleDarkMode.astro";
-
 export interface MenuItem {
   title: string;
   path: string;
 }
+
+export interface ThemeItem {
+  color: string;
+}
+
+const themes: ThemeItem[] = [
+  { color: "system" },
+  { color: "light" },
+  { color: "dark" },
+  { color: "cupcake" },
+  { color: "bumblebee" },
+  { color: "emerald" },
+  { color: "corporate" },
+  { color: "synthwave" },
+  { color: "retro" },
+  { color: "cyberpunk" },
+  { color: "valentine" },
+  { color: "halloween" },
+  { color: "garden" },
+  { color: "forest" },
+  { color: "aqua" },
+  { color: "lofi" },
+  { color: "pastel" },
+  { color: "fantasy" },
+  { color: "wireframe" },
+  { color: "black" },
+  { color: "luxury" },
+  { color: "dracula" },
+  { color: "cmyk" },
+  { color: "autumn" },
+  { color: "business" },
+  { color: "acid" },
+  { color: "lemonade" },
+  { color: "night" },
+  { color: "coffee" },
+  { color: "winter" },
+  { color: "dim" },
+  { color: "nord" },
+  { color: "sunset" },
+];
 
 const menuItems: MenuItem[] = [
   {
@@ -22,4 +60,89 @@ const menuItems: MenuItem[] = [
 ];
 ---
 
+<div class="navbar bg-base-200 text-black">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h8m-8 6h16"></path>
+        </svg>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+      >
+        <li><a>Item 1</a></li>
+        <li>
+          <a>Parent</a>
+          <ul class="p-2">
+            <li><a>Submenu 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
+        </li>
+        <li><a>Item 3</a></li>
+      </ul>
+    </div>
+    <select name="themeSwitch" id="themeSwitch">
+      {themes.map((item) => <option value={item.color}>{item.color}</option>)}
+    </select>
+    <a class="btn btn-ghost text-xl">daisyUI</a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      <li><a>Item 1</a></li>
+      <li>
+        <details>
+          <summary>Parent</summary>
+          <ul class="p-2">
+            <li><a>Submenu 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a>Item 3</a></li>
+    </ul>
+  </div>
+  <div class="navbar-end">
+    <a class="btn">Button</a>
+  </div>
+</div>
 
+<script>
+  const select = document.getElementById("themeSwitch") as HTMLSelectElement;
+  const theme = localStorage.getItem("theme");
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+
+  if (theme !== null) {
+    select.value = theme;
+  } else {
+    select.value = systemTheme;
+  }
+
+  function updateTheme(value: string) {
+    const theme = value === "system" ? systemTheme : value;
+    const html = document.getElementById("html");
+    html?.setAttribute("data-theme", theme);
+
+    localStorage.setItem("theme", value);
+  }
+
+  updateTheme(select.value);
+
+  select.addEventListener("change", (event: Event) => {
+    const select = event.target as HTMLSelectElement;
+    updateTheme(select.value);
+  });
+</script>

@@ -13,12 +13,9 @@ const { title, seoDesc, seoTitle } = Astro.props as mainLayoutProps;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth" data-testid="html">
+<html lang="en" class="scroll-smooth" data-testid="html" data-theme="light" id="html">
   <head>
-    <SEO
-      title={seoTitle}
-      description={seoDesc}
-    />
+    <SEO title={seoTitle} description={seoDesc} />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -28,7 +25,7 @@ const { title, seoDesc, seoTitle } = Astro.props as mainLayoutProps;
     <title>{title}</title>
   </head>
   <body
-    class="mx-auto container h-screen bg-slate-50 px-5 font-sans text-white dark:bg-zinc-900 xs:text-[16px] md:text-[18px]"
+    class="mx-auto container h-screen px-5 font-sans text-white xs:text-[16px] md:text-[18px]"
   >
     <Navbar />
     <main
