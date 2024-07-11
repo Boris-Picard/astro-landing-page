@@ -4,47 +4,11 @@ export interface MenuItem {
   path: string;
 }
 
-export interface ThemeItem {
-  color: string;
-}
-
-const themes: ThemeItem[] = [
-  { color: "system" },
-  { color: "light" },
-  { color: "dark" },
-  { color: "cupcake" },
-  { color: "bumblebee" },
-  { color: "emerald" },
-  { color: "corporate" },
-  { color: "synthwave" },
-  { color: "retro" },
-  { color: "cyberpunk" },
-  { color: "valentine" },
-  { color: "halloween" },
-  { color: "garden" },
-  { color: "forest" },
-  { color: "aqua" },
-  { color: "lofi" },
-  { color: "pastel" },
-  { color: "fantasy" },
-  { color: "wireframe" },
-  { color: "black" },
-  { color: "luxury" },
-  { color: "dracula" },
-  { color: "cmyk" },
-  { color: "autumn" },
-  { color: "business" },
-  { color: "acid" },
-  { color: "lemonade" },
-  { color: "night" },
-  { color: "coffee" },
-  { color: "winter" },
-  { color: "dim" },
-  { color: "nord" },
-  { color: "sunset" },
-];
-
 const menuItems: MenuItem[] = [
+  {
+    title: "Home",
+    path: "/",
+  },
   {
     title: "About",
     path: "/about",
@@ -58,105 +22,29 @@ const menuItems: MenuItem[] = [
     path: "#contact",
   },
 ];
+
+const currentPath: string = Astro.url.pathname;
 ---
 
-<header>
-  <div class="navbar">
-    <div class="navbar-start">
-      <div class="dropdown">
-        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h8m-8 6h16"></path>
-          </svg>
-        </div>
-        <ul
-          tabindex="0"
-          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-        >
-          <li><a>Item 1</a></li>
+<header
+  class="sticky top-0 z-20 lg:border-b transition-all duration-300 border-transparent py-10"
+>
+  <nav
+    class="lg mx-auto flex max-w-[400px] items-center rounded-md bg-zinc-800 justify-center gap-3 px-4 py-3 md:px-6 backdrop-blur-2xl"
+  >
+    <ul class="items-center flex gap-1">
+      {
+        menuItems.map((item) => (
           <li>
-            <a>Parent</a>
-            <ul class="p-2">
-              <li><a>Submenu 1</a></li>
-              <li><a>Submenu 2</a></li>
-            </ul>
+            <a
+              class={`${item.path === currentPath ? "bg-zinc-700" : ""} px-4 py-2 font-bold rounded-md text-sm text-slate-50 hover:text-slate-300 transition-colors`}
+              href={item.path}
+            >
+              {item.title}
+            </a>
           </li>
-          <li><a>Item 3</a></li>
-        </ul>
-      </div>
-      <select> </select>
-      <div class="dropdown" id="themeSwitch">
-        <div tabindex="0" role="button" class="btn m-1">Click</div>
-        <ul
-          tabindex="0"
-          class="dropdown-content bg-base-200 text-base-content rounded-box top-px h-[28.6rem] max-h-[calc(100vh-10rem)] w-56 overflow-y-auto border border-white/5 shadow-2xl outline outline-1 outline-black/5 mt-16"
-        >
-          <div class="grid grid-cols-1 gap-3 p-3">
-            {
-              themes.map((item) => (
-                <button data-theme={item.color}><span>{item.color}</span></button>
-              ))
-            }
-          </div>
-        </ul>
-      </div>
-      <a class="btn btn-ghost text-xl">daisyUI</a>
-    </div>
-    <div class="navbar-center hidden lg:flex">
-      <ul class="menu menu-horizontal px-1">
-        <li><a>Item 1</a></li>
-        <li>
-          <details>
-            <summary>Parent</summary>
-            <ul class="p-2">
-              <li><a>Submenu 1</a></li>
-              <li><a>Submenu 2</a></li>
-            </ul>
-          </details>
-        </li>
-        <li><a>Item 3</a></li>
-      </ul>
-    </div>
-    <div class="navbar-end">
-      <a class="btn">Button</a>
-    </div>
-  </div>
+        ))
+      }
+    </ul>
+  </nav>
 </header>
-
-<script>
-  const themeSwitch = document.getElementById("themeSwitch");
-  const theme = localStorage.getItem("theme");
-  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-
-  function setTheme(value: string) {
-    localStorage.setItem("theme", value);
-    const html = document.getElementById("html");
-    html?.setAttribute("data-theme", value);
-  }
-
-  if (theme !== null) {
-    setTheme(theme);
-  } else {
-    setTheme(systemTheme);
-  }
-
-  // Ajoutez un écouteur d'événements pour les clics sur les éléments <li>
-  themeSwitch?.querySelectorAll("button").forEach((btn) => {
-    btn.addEventListener("click", (event) => {
-      const selectedTheme = event?.currentTarget?.getAttribute("data-theme");
-      setTheme(selectedTheme);
-    });
-  });
-</script>
