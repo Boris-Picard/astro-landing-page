@@ -3,19 +3,21 @@
 import Navbar from "../components/Navigation.astro";
 import { SEO } from "astro-seo";
 
-export interface LayoutProps {
+export interface mainLayoutProps {
   title: string;
+  seoDesc: string;
+  seoTitle: string;
 }
 
-const { title = "John Doe | Web developer" } = Astro.props as LayoutProps;
+const { title, seoDesc, seoTitle } = Astro.props as mainLayoutProps;
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth" data-testid="html">
   <head>
     <SEO
-      title="A Very Descriptive Title"
-      description="A heavily optimized description full of well-researched keywords."
+      title={seoTitle}
+      description={seoDesc}
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -26,10 +28,16 @@ const { title = "John Doe | Web developer" } = Astro.props as LayoutProps;
     <title>{title}</title>
   </head>
   <body
-    class="mx-auto max-w-screen-xl bg-white px-5 font-sans text-white dark:bg-black xs:text-[16px] md:text-[18px]"
+    class="mx-auto container h-screen bg-slate-50 px-5 font-sans text-white dark:bg-zinc-900 xs:text-[16px] md:text-[18px]"
   >
     <Navbar />
-    <slot />
+    <main
+      class="mx-auto max-w-[700px] px-6 pb-24 pt-16 md:px-6 md:pb-44 md:pt-20"
+    >
+      <div class="flex flex-col gap-16 md:gap-24">
+        <slot />
+      </div>
+    </main>
     <!-- <Footer /> -->
     <style is:global>
       img {
@@ -37,7 +45,5 @@ const { title = "John Doe | Web developer" } = Astro.props as LayoutProps;
       }
     </style>
   </body>
-  </html>
-  
-  <script src="../../node_modules/preline/dist/preline.js"></script>
-  
+</html>
+<script src="../../node_modules/preline/dist/preline.js"></script>
