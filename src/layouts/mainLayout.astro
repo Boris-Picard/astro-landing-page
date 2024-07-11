@@ -1,0 +1,22 @@
+---
+import MainHead from "./mainHead.astro";
+export interface Props {
+  title: string;
+  seoTitle: string;
+  seoDesc: string;
+}
+
+const { title, seoTitle, seoDesc } = Astro.props;
+---
+
+<html lang="en">
+  <MainHead title={title} seoDesc={seoDesc} seoTitle={seoTitle} />
+  <body class="container bg-zinc-900">
+    <slot />
+    <style>
+      body {
+        font-family: "Montserrat";
+      }
+    </style>
+  </body>
+</html>
