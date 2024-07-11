@@ -23,21 +23,21 @@ const menuItems: MenuItem[] = [
   },
 ];
 
-const currentPath: string = Astro.url.pathname;
+// const currentPath: string = Astro.url.pathname;
 ---
 
 <header
   class="sticky top-0 z-20 lg:border-b transition-all duration-300 border-transparent py-10"
 >
   <nav
-    class="lg mx-auto flex max-w-[400px] items-center rounded-md bg-zinc-800 justify-center gap-3 px-4 py-3 md:px-6 backdrop-blur-2xl"
+    class="lg mx-auto flex max-w-[400px] items-center rounded-2xl bg-zinc-800 justify-center gap-3 px-4 py-3 md:px-6 backdrop-blur-2xl"
   >
     <ul class="items-center flex gap-1">
       {
         menuItems.map((item) => (
           <li>
             <a
-              class={`${item.path === currentPath ? "bg-zinc-700" : ""} px-4 py-2 font-bold rounded-md text-sm text-slate-50 hover:text-slate-300 transition-colors`}
+              class="hover:bg-zinc-700 focus:bg-zinc-700 px-4 py-2 font-semibold rounded-xl text-sm text-slate-50 hover:text-slate-300 transition-colors"
               href={item.path}
             >
               {item.title}
