@@ -3,7 +3,7 @@ import { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"button"> {
   type?: "button" | "submit" | "reset";
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "sign";
 }
 
 const { type, class: className, variant, ...props } = Astro.props as Props;
@@ -13,6 +13,8 @@ const variantClasses = {
     "py-3 px-4 text-xs rounded-full bg-white hover:bg-white/10 text-black duration-200 hover:text-white",
   secondary:
     "relative rounded-full px-3 py-1 text-sm leading-6 text-white ring-1 ring-white/10",
+  sign:
+    "py-1.5 px-4 text-xs rounded-full bg-white hover:bg-white/10 text-black duration-200 hover:text-white",
 };
 
 const computedClassName = `${variantClasses[variant ?? "primary"]}`;
