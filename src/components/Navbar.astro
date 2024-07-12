@@ -11,20 +11,37 @@ const menuItems: MenuItems[] = [
     title: "home",
     path: "/",
   },
+  {
+    title: "overview",
+    path: "/overview",
+  },
+  {
+    title: "components",
+    path: "/components",
+  },
 ];
 ---
 
 <header>
   <nav class="flex justify-between p-3 lg:max-w-7xl mx-auto px-8 items-center">
     <div class="flex items-center">
-      <span>Brand</span>
+      <a
+        href="/"
+        class="font-black text-slate-50 hover:text-[#EF8801]">Brand</a
+      >
     </div>
-    <div class="flex bg-zinc-800 justify-center items-center w-1/4 h-10">
-      <ul>
+    <div
+      class="relative flex flex-col w-1/4 p-3 mx-auto bg-black/10 border border-white/10 shadow-md backdrop-blur-xl backdrop-filter rounded-xl md:rounded-full md:items-center md:justify-between md:flex-row md:px-6"
+    >
+      <ul
+        class="space-y-2 md:space-y-0 text-xs text-slate-50 items-center w-full md:inline-flex justify-center text-center gap-3"
+      >
         {
           menuItems.map((item) => (
             <li>
-              <a href={item.path}>{item.title}</a>
+              <a href={item.path} class="hover:text-[#EF8801] capitalize">
+                {item.title}
+              </a>
             </li>
           ))
         }
