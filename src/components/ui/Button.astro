@@ -9,11 +9,13 @@ interface Props extends HTMLAttributes<"button"> {
 const { type, class: className, variant, ...props } = Astro.props as Props;
 
 const variantClasses = {
-  primary: "bg-blue-500 hover:bg-blue-700 text-white",
-  secondary: "bg-gray-500 hover:bg-gray-700 text-white",
+  primary:
+    "py-1.5 px-4 text-xs rounded-full bg-white hover:bg-white/10 text-black duration-200 hover:text-white inline-flex items-center justify-center  lg:ml-auto",
+  secondary:
+    "relative rounded-full px-3 py-1 text-sm leading-6 text-white ring-1 ring-white/10",
 };
 
-const computedClassName = `${variantClasses[variant ?? "primary"]} px-4 py-2 rounded`;
+const computedClassName = `${variantClasses[variant ?? "primary"]}`;
 ---
 
 <button type={type ?? "button"} class={computedClassName} {...props}>
