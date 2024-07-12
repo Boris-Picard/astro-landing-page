@@ -1,0 +1,36 @@
+---
+export interface MenuItems {
+  title: string;
+  path: string;
+}
+
+const menuItems: MenuItems[] = [
+  {
+    title: "home",
+    path: "/",
+  },
+];
+---
+
+<header>
+  <nav class="flex bg-white justify-between p-3">
+    <div class="flex items-center">
+      <span>Brand</span>
+    </div>
+    <div class="flex bg-zinc-800 justify-center items-center w-1/4 h-10">
+      <ul>
+        {
+          menuItems.map((item) => (
+            <li>
+              <a href={item.path}>{item.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="flex space-x-3">
+      <button>Sign Up</button>
+      <button>Sign In</button>
+    </div>
+  </nav>
+</header>

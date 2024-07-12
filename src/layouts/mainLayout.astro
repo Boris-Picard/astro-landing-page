@@ -1,6 +1,7 @@
 ---
 // import Footer from '@components/Footer.astro';
 import { SEO } from "astro-seo";
+import Navbar from "../components/Navbar.astro";
 
 export interface mainLayoutProps {
   title: string;
@@ -26,6 +27,7 @@ const { title, seoDesc, seoTitle } = Astro.props as mainLayoutProps;
   <body
     class="mx-auto container h-screen px-5 xs:text-[16px] md:text-[18px] bg-zinc-900"
   >
+    <Navbar />
     <main>
       <slot />
     </main>
