@@ -1,11 +1,20 @@
 ---
-
+import Cards from "./ui/Cards.astro";
 ---
 
 <section id="hero" class="flex items-center justify-center p-8">
   <div
-    class="relative w-full max-w-7xl max-h-[800px] mx-auto py-24 lg:py-40 px-8 md:px-12 lg:px-16 xl:px-40 rounded-3xl bg-radial-gradient-to-top ring-1 ring-white/10"
+    class="relative w-full max-w-7xl max-h-[800px] mx-auto py-24 lg:py-40 px-8 md:px-12 lg:px-16 xl:px-40"
   >
-    <div class="flex justify-center mb-8"></div>
+    <div class="pb-12 font-light text-xl text-center">
+      <span class="text-purple-500">Educational Data Visualization.</span>
+      <h2 class="mt-6 tracking-normal text-slate-50">
+        Engaging Charts with Interactive Features.
+      </h2>
+      <span class="text-zinc-400"
+        >Key Features for Educators.</span
+      >
+    </div>
+    <Cards />
   </div>
 </section>
