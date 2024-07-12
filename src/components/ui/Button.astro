@@ -1,0 +1,21 @@
+---
+import { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+  type?: "button" | "submit" | "reset";
+  variant?: "primary" | "secondary";
+}
+
+const { type, class: className, variant, ...props } = Astro.props as Props;
+
+const variantClasses = {
+  primary: "bg-blue-500 hover:bg-blue-700 text-white",
+  secondary: "bg-gray-500 hover:bg-gray-700 text-white",
+};
+
+const computedClassName = `${variantClasses[variant ?? "primary"]} px-4 py-2 rounded`;
+---
+
+<button type={type ?? "button"} class={computedClassName} {...props}>
+  <slot />
+</button>

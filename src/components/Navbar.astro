@@ -1,4 +1,6 @@
 ---
+import Button from "./ui/Button.astro";
+
 export interface MenuItems {
   title: string;
   path: string;
@@ -13,7 +15,7 @@ const menuItems: MenuItems[] = [
 ---
 
 <header>
-  <nav class="flex bg-white justify-between p-3">
+  <nav class="flex bg-white justify-between p-3 lg:max-w-7xl mx-auto px-8">
     <div class="flex items-center">
       <span>Brand</span>
     </div>
@@ -29,8 +31,8 @@ const menuItems: MenuItems[] = [
       </ul>
     </div>
     <div class="flex space-x-3">
-      <button>Sign Up</button>
-      <button>Sign In</button>
+      <Button variant="primary">Sign Up</Button>
+      <Button variant="secondary">Sign In</Button>
     </div>
   </nav>
 </header>
