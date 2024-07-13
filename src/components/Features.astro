@@ -1,5 +1,64 @@
 ---
-import Cards from "./ui/Cards.astro";
+import Cards from "./ui/CardsFeatures.astro";
+
+import settings from "../assets/settings.svg";
+import check from "../assets/check.svg";
+import secure from "../assets/secure.svg";
+import fast from "../assets/fast.svg";
+import affordable from "../assets/affordable.svg";
+import scalable from "../assets/scalable.svg";
+
+interface CardsItem {
+  title: string;
+  description: string;
+  src: ImageMetadata;
+  alt: string;
+}
+
+const cardsItem: CardsItem[] = [
+  {
+    title: "Easy to Use",
+    description:
+      "Astro makes it simple to build fast, responsive websites with minimal effort. Our intuitive templates and tools help you get started quickly.",
+    src: settings,
+    alt: "settings icon",
+  },
+  {
+    title: "Reliable",
+    description:
+      "Astro provides a stable environment for your web applications, ensuring consistent performance and uptime.",
+    src: check,
+    alt: "check icon",
+  },
+  {
+    title: "Secure",
+    description:
+      "Security is a top priority with Astro, incorporating best practices to keep your data and applications safe.",
+    src: secure,
+    alt: "secure icon",
+  },
+  {
+    title: "Fast",
+    description:
+      "With Astro, experience lightning-fast load times and optimized performance for a seamless user experience.",
+    src: fast,
+    alt: "fast icon",
+  },
+  {
+    title: "Affordable",
+    description:
+      "Astro offers cost-effective solutions, making it accessible for developers and businesses of all sizes.",
+    src: affordable,
+    alt: "affordable icon",
+  },
+  {
+    title: "Scalable",
+    description:
+      "Astro scales effortlessly with your needs, from small projects to large, complex applications.",
+    src: scalable,
+    alt: "scalable icon",
+  },
+];
 ---
 
 <section id="visualization" class="flex items-center justify-center p-8">
@@ -14,19 +73,17 @@ import Cards from "./ui/Cards.astro";
       <span class="text-zinc-400">Key Features of Astro Framework.</span>
     </div>
     <div class="shadow-[8px_9px_200px_16px_rgba(159,_122,_234,_1)]"></div>
-    <div class="grid grid-cols-3 mt-6 gap-3">
-      <Cards
-        title="Facere, asperiore"
-        description="Facere, asperiores quas numquam ratione tempora, impedit doloribus minus dolores, laboriosam in fugit libero sequi deleniti "
-      />
-      <Cards
-        title="Facere, asperiore"
-        description="Facere, asperiores quas numquam ratione tempora, impedit doloribus minus dolores, laboriosam in fugit libero sequi deleniti "
-      />
-      <Cards
-        title="Facere, asperiore"
-        description="Facere, asperiores quas numquam ratione tempora, impedit doloribus minus dolores, laboriosam in fugit libero sequi deleniti "
-      />
+    <div class="grid grid-cols-3 mt-6 gap-8">
+      {
+        cardsItem.map((item) => (
+          <Cards
+            src={item.src}
+            alt={item.alt}
+            title={item.title}
+            description={item.description}
+          />
+        ))
+      }
     </div>
   </div>
 </section>
