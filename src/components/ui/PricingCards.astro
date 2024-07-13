@@ -2,81 +2,48 @@
 import { Image } from "astro:assets";
 import Button from "./Button.astro";
 import check from "../../assets/check.svg";
-// interface Props {
-//   title?: string;
-//   description?: string;
-//   src: ImageMetadata;
-//   alt: string;
-// }
 
-// const { title, description, src, alt } = Astro.props as Props;
+interface Props {
+  title: string;
+  description: string;
+  price: string;
+  button: string;
+  li: string[];
+}
+
+const { title, description, price, button, li } = Astro.props as Props;
 ---
 
 <div class="bg-zinc-800/50 rounded-3xl p-8">
   <div class="flex flex-col space-y-3">
-    <h3 class="text-slate-50 font-semibold text-2xl">Basic plan</h3>
-    <p class="text-zinc-400">For your hobby projects</p>
+    <h3 class="text-slate-50 font-semibold text-2xl">{title}</h3>
+    <p class="text-zinc-400">{description}</p>
   </div>
   <div class="flex py-6">
     <p class="text-4xl font-bold text-slate-50">
-      0$ <span class="text-zinc-400 text-base">/month</span>
+      {price}
+      <span class="text-zinc-400 text-base">/month</span>
     </p>
   </div>
   <div class="flex border-b border-white/10 pb-8">
-    <Button variant="pricing">Get Started</Button>
+    <Button variant="pricing">{button}</Button>
   </div>
   <div class="flex mt-8">
     <ul class="space-y-4">
-      <li class="flex gap-3">
-        <Image
-          src={check}
-          alt="check icon"
-          width={16}
-          height={16}
-          class="invert"
-        />
-        <span class="text-zinc-400 text-sm">Up to 10 projects</span>
-      </li>
-      <li class="flex gap-3">
-        <Image
-          src={check}
-          alt="check icon"
-          width={16}
-          height={16}
-          class="invert"
-        />
-        <span class="text-zinc-400 text-sm">Access to all basic templates</span>
-      </li>
-      <li class="flex gap-3">
-        <Image
-          src={check}
-          alt="check icon"
-          width={16}
-          height={16}
-          class="invert"
-        />
-        <span class="text-zinc-400 text-sm">Basic analytics</span>
-      </li>
-      <li class="flex gap-3">
-        <Image
-          src={check}
-          alt="check icon"
-          width={16}
-          height={16}
-          class="invert"
-        />
-        <span class="text-zinc-400 text-sm">Email support</span>
-      </li>
-      <li class="flex gap-3">
-        <Image
-          src={check}
-          alt="check icon"
-          width={16}
-          height={16}
-          class="invert"
-        />
-        <span class="text-zinc-400 text-sm">1 GB of storage</span>
-      </li>
+      {
+        li.map((item) => (
+          <li class="flex gap-3">
+            <Image
+              src={check}
+              alt="check icon"
+              width={16}
+              height={16}
+              class="invert"
+            />
+            <span class="text-zinc-400 text-sm">{item}</span>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </div>
