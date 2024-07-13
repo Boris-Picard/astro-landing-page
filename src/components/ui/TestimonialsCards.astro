@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+import pp1 from "../../assets/pp1.jpg";
+---
+
+<div class="bg-white text-zinc-800 p-6 rounded-3xl flex flex-col">
+  <q>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati neque
+    rem eaque in sint hic, quisquam saepe laudantium laborum. Reprehenderit
+    omnis laboriosam ab at explicabo rem nam. Nesciunt, quidem architecto?
+  </q>
+  <div class="mt-10 flex space-x-2 items-center">
+    <Image src={pp1} alt="pp" width={46} height={46} class="rounded-full" />
+    <div class="flex flex-col">
+      <span class="font-bold">Lorem Name</span>
+      <span class="text-zinc-600 text-sm">@adadad</span>
+    </div>
+  </div>
+</div>
