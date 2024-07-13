@@ -1,7 +1,5 @@
 ---
-import { Image } from "astro:assets";
 import Button from "./Button.astro";
-import check from "../../assets/check.svg";
 
 interface Props {
   title: string;
@@ -9,12 +7,26 @@ interface Props {
   price: string;
   button: string;
   li: string[];
+  variant: "default" | "primary";
 }
 
-const { title, description, price, button, li } = Astro.props as Props;
+const {
+  title,
+  description,
+  price,
+  button,
+  li,
+  variant = "default",
+} = Astro.props as Props;
+
+const variantClasses = {
+  default: " rounded-3xl p-8",
+  primary:
+    "bg-gradient-to-bl from-purple-700 via-purple-800 to-purple-900 rounded-3xl scale-110 p-8 shadow-lg",
+};
 ---
 
-<div class="bg-zinc-800/50 rounded-3xl p-8">
+<div class={`${variantClasses[variant ?? "primary"]}`}>
   <div class="flex flex-col space-y-3">
     <h3 class="text-slate-50 font-semibold text-2xl">{title}</h3>
     <p class="text-zinc-400">{description}</p>
@@ -33,13 +45,21 @@ const { title, description, price, button, li } = Astro.props as Props;
       {
         li.map((item) => (
           <li class="flex gap-3">
-            <Image
-              src={check}
-              alt="check icon"
-              width={16}
-              height={16}
-              class="invert"
-            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 507.506 507.506"
+              fill="#fff"
+              width="16"
+              height="16"
+            >
+              <g>
+                <path
+                  d="M163.865,436.934c-14.406,0.006-28.222-5.72-38.4-15.915L9.369,304.966c-12.492-12.496-12.492-32.752,0-45.248
+                  l0,0c12.496-12.492,32.752-12.492,45.248,0l109.248,109.248L452.889,79.942c12.496-12.492,32.752-12.492,45.248,0
+                  l0,0c12.492,12.496,12.492,32.752,0,45.248L202.265,421.019C192.087,431.214,178.271,436.94,163.865,436.934z"
+                />
+              </g>
+            </svg>
             <span class="text-zinc-400 text-sm">{item}</span>
           </li>
         ))
