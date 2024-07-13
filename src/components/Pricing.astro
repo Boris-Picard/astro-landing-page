@@ -60,20 +60,25 @@ const pricingItems: PricingItems[] = [
 ];
 ---
 
-<section id="pricing" class="p-8">
+<section id="pricing" class="p-8 flex items-center justify-center">
   <div
-    class="relative w-full max-w-7xl max-h-[800px] mx-auto py-24 lg:py-40 px-8 md:px-12 lg:px-16 xl:px-40"
+    class="relative w-full max-w-7xl mx-auto py-24 lg:py-40 px-8 md:px-12 lg:px-16 xl:px-40"
   >
-    <div class="pb-24 font-light text-xl text-center">
+    <div class="mb-24 text-xl text-center tracking-tight">
       <span class="text-purple-500">Flexible Pricing Plans.</span>
-      <h2 class="mt-6 tracking-normal text-slate-50">
-        Astro offers scalable solutions tailored to your needs,
+      <h2 class="mt-6 text-3xl text-slate-50 font-bold">
+        Astro Framework offers tailored solutions.
       </h2>
-      <span class="text-zinc-400"
-        >providing the best value for institutions and organizations worldwide.</span
-      >
+      <div class="mt-4">
+        <span class="text-zinc-400"
+          >Astro offers pricing plans to suit your needs. From our Free Plan for
+          beginners to Pro and Premium Plans for professionals and large-scale
+          projects, each plan includes engaging features and tools. Build fast,
+          responsive websites with ease using Astro Framework.</span
+        >
+      </div>
     </div>
-    <div class="grid grid-cols-3 gap-3">
+    <div class="grid grid-cols-3 gap-3 h-full">
       {
         pricingItems.map((item) => (
           <PricingCards
