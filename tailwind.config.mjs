@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       boxShadow: {
-        glow: "0 0 15px 5px rgba(139, 92, 246, 0.5), 0 0 30px 10px rgba(76, 29, 149, 0.5)",
+        glow: "0 0 15px 5px rgba(139, 92, 246, 0.7), 0 0 30px 10px rgba(76, 29, 149, 0.7)",
       },
       animation: {
         scroll: "scroll 20s linear infinite",
