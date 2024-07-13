@@ -21,8 +21,8 @@ export default {
           "100%": { transform: "translateY(-100%)" },
         },
         scrollDown: {
-          "0%": { transform: "translateY(0)" },
-          "100%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(0)" },
+          "0%": { transform: "translateY(-100%)" },
         },
       },
     },
