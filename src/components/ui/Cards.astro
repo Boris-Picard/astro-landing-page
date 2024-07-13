@@ -1,21 +1,16 @@
 ---
-import { Image } from "astro:assets";
-
 interface Props {
   title?: string;
   description?: string;
-  src: ImageMetadata;
-  alt: string;
 }
 
-const { title, description, src, alt } = Astro.props as Props;
+const { title, description } = Astro.props as Props;
 ---
 
 <div
-  class="border border-white/10  rounded-3xl md:col-span-1 col-span-3 h-[350px] p-8 overflow-hidden"
+  class="border border-white/10 rounded-3xl md:col-span-1 col-span-3 h-[350px] p-8 overflow-hidden"
 >
-  <div class="space-y-3 flex flex-col  justify-end h-full">
-    <Image src={src} alt={alt} class="rounded-3xl drop-shadow-lg object-fill" />
+  <div class="space-y-3 flex flex-col justify-end h-full">
     <h2 class="font-semibold text-slate-50">{title}</h2>
     <p class="text-zinc-300 text-sm text-pretty">{description}</p>
   </div>

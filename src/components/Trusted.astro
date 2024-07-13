@@ -1,10 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import alison from "../assets/alison.svg";
-import futureLearn from "../assets/future-learn.svg";
-import github from "../assets/github.svg";
-import edx from "../assets/edx.svg";
-import skillshare from "../assets/skillshare.svg";
+import astro from "../assets/astro-light.svg";
 
 interface ImagesItems {
   src: ImageMetadata;
@@ -13,24 +9,24 @@ interface ImagesItems {
 
 const imageItems: ImagesItems[] = [
   {
-    src: alison,
-    alt: "alison logo",
+    src: astro,
+    alt: "astro logo",
   },
   {
-    src: futureLearn,
-    alt: "future learn logo",
+    src: astro,
+    alt: "astro logo",
   },
   {
-    src: github,
-    alt: "github logo",
+    src: astro,
+    alt: "astro logo",
   },
   {
-    src: edx,
-    alt: "edx logo",
+    src: astro,
+    alt: "astro logo",
   },
   {
-    src: skillshare,
-    alt: "skillshare logo",
+    src: astro,
+    alt: "astro logo",
   },
 ];
 ---
@@ -40,12 +36,13 @@ const imageItems: ImagesItems[] = [
     class="relative w-full max-w-7xl max-h-[800px] mx-auto py-24 lg:py-40 px-8 md:px-12 lg:px-16 xl:px-40"
   >
     <div class="pb-12 font-light text-xl text-center">
-      <span class="text-purple-500">Trusted by the Best in Education.</span>
+      <span class="text-purple-500">Trusted by the Best.</span>
       <h2 class="mt-6 tracking-normal text-slate-50">
-        EduMaster is the go-to solution for leading educational
+        Astro is the go-to solution
       </h2>
       <span class="text-zinc-400"
-        >institutions and organizations worldwide.</span
+        >for rapidly deploying online content for institutions and organizations
+        worldwide.</span
       >
     </div>
     <div class="mt-6 overflow-hidden border-t border-b border-white/10">
@@ -53,11 +50,7 @@ const imageItems: ImagesItems[] = [
         {
           imageItems.concat(imageItems).map((item) => (
             <div class="mt-4 flex-shrink-0 ml-8 lg:ml-4 flex-grow lg:flex-grow-0">
-              <Image
-                src={item.src}
-                alt={item.alt}
-                class="brightness-0 invert object-contain"
-              />
+              <Image src={item.src} alt={item.alt} class=" object-contain" />
             </div>
           ))
         }
