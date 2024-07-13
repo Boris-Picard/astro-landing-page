@@ -1,6 +1,7 @@
 ---
-// import { Image } from "astro:assets";
-
+import { Image } from "astro:assets";
+import Button from "./Button.astro";
+import check from "../../assets/check.svg";
 // interface Props {
 //   title?: string;
 //   description?: string;
@@ -11,4 +12,30 @@
 // const { title, description, src, alt } = Astro.props as Props;
 ---
 
-
+<div class="bg-zinc-800/50 rounded-3xl p-8">
+  <div class="flex flex-col space-y-3">
+    <h3 class="text-slate-50 font-semibold text-3xl">Basic</h3>
+    <p class="text-zinc-400">For your hobby projects</p>
+  </div>
+  <div class="flex py-6">
+    <p class="text-4xl font-bold text-slate-50">
+      0$ <span class="text-zinc-400 text-base">/month</span>
+    </p>
+  </div>
+  <div class="flex border-b border-white/10 pb-8">
+    <Button variant="pricing">Get Started</Button>
+  </div>
+  <div class="flex flex-col mt-8">
+    <ul>
+      <li>
+        <Image
+          src={check}
+          alt="check icon"
+          width={16}
+          height={16}
+          class="invert"
+        />
+      </li>
+    </ul>
+  </div>
+</div>
