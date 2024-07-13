@@ -8,11 +8,21 @@ export default {
       },
       animation: {
         scroll: "scroll 20s linear infinite",
+        scrollUp: "scrollUp 5s linear infinite",
+        scrollDown: "scrollDown 5s linear infinite",
       },
       keyframes: {
         scroll: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-100%)" },
+        },
+        scrollUp: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-100%)" },
+        },
+        scrollDown: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-100%)" },
         },
       },
     },
