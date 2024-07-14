@@ -1,0 +1,59 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  nb: number;
+}
+
+const { title, description, nb } = Astro.props as Props;
+---
+
+<div class="w-full mx-auto rounded-xl shadow-md overflow-hidden">
+  <div class="border-b border-white/10">
+    <button
+      class="flex justify-between items-center w-full text-left px-4 py-6 text-slate-50 font-bold bg-zinc-900 cursor-pointer"
+      data-target={nb}
+    >
+      <h4>{title}</h4>
+      <svg
+        id=`icon${nb}`
+        class="w-5 h-5 text-purple-500 transition-transform transform"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    <div id=`content${nb}` class="p-4 text-zinc-400 hidden text-balance">
+      {description}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.getAttribute("data-target");
+        const content = document.getElementById(`content${target}`);
+        const icon = document.getElementById(`icon${target}`);
+        if (content?.classList.contains("open")) {
+          content?.classList.remove("open");
+          content?.classList.add("hidden");
+          icon?.classList.remove("rotate-180");
+        } else {
+          content?.classList.add("open");
+          content?.classList.remove("hidden");
+          icon?.classList.add("rotate-180");
+        }
+      });
+    });
+  });
+</script>

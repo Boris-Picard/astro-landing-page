@@ -1,5 +1,45 @@
 ---
+import Accordion from "./ui/Accordion.astro";
 
+interface AccordionItems {
+  title: string;
+  description: string;
+}
+
+const accordionItems: AccordionItems[] = [
+  {
+    title: "1. What is Astro Framework?",
+    description: `Astro Framework is a web development tool designed to help developers build fast, responsive websites. 
+     It offers a range of interactive tools and features to streamline the development process and enhance user experience.`,
+  },
+  {
+    title: "2. How do I get started with Astro Framework?",
+    description: `Getting started with Astro is easy. 
+    Simply sign up for a free account, choose a template, and start building your website. 
+    Our intuitive interface and comprehensive documentation will guide you through the process.`,
+  },
+  {
+    title: "3. What are the key features of Astro Framework?",
+    description: `Astro Framework includes customizable templates, real-time analytics, interactive tools, and easy integration with other platforms. 
+      It is designed to empower developers to create high-performance websites efficiently.`,
+  },
+  {
+    title: "4. What pricing plans does Astro offer?",
+    description: `Astro offers three pricing plans: Free, Pro, and Premium. 
+      The Free Plan is perfect for individuals starting out, while the Pro and Premium Plans offer more advanced features and support for professionals and large-scale projects.`,
+  },
+  {
+    title: "5. How secure is Astro Framework?",
+    description: `Security is a top priority for Astro. 
+    We implement best practices and the latest technologies to ensure your data and applications are protected. 
+    Our platform is regularly updated to address any security vulnerabilities.`,
+  },
+  {
+    title: "6. Can I integrate Astro with other tools and platforms?",
+    description: `Yes, Astro is designed to be easily integrated with other tools and platforms. 
+    Whether you need to connect to a CMS, analytics tool, or other web services, Astro provides the flexibility to seamlessly incorporate them into your workflow.`,
+  },
+];
 ---
 
 <section id="faq" class="flex items-center justify-center p-8">
@@ -19,6 +59,17 @@
           plans, and more.</span
         >
       </div>
+    </div>
+    <div class="mt-6">
+      {
+        accordionItems.map((item, index) => (
+          <Accordion
+            title={item.title}
+            description={item.description}
+            nb={index}
+          />
+        ))
+      }
     </div>
   </div>
 </section>
