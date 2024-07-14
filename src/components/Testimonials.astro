@@ -1,5 +1,24 @@
 ---
 import TestimonialsCards from "./ui/TestimonialsCards.astro";
+
+import pp1 from "../assets/pp1.jpg";
+
+interface CardsItems {
+  quote: string;
+  img: ImageMetadata;
+  name: string;
+  social: string;
+}
+
+const cardsItems: CardsItems[] = [
+  {
+    quote:
+      "aiodaoidiaziodaojidijzaiodaidajidadjiadznindiaidoanidiaozndaidnazio",
+    img: pp1,
+    name: "adad",
+    social: "@dadadad",
+  },
+];
 ---
 
 <section id="testimonials" class="p-8">
@@ -20,9 +39,20 @@ import TestimonialsCards from "./ui/TestimonialsCards.astro";
         >
       </div>
     </div>
-    <div class="mt-6 rounded-3xl bg-[radial-gradient(ellipse_at_top,_#1a1a1a_50%,_#7E22CE_100%,_#3a3a3a_70%,_#1a1a1a_100%)]">
+    <div
+      class="mt-6 rounded-3xl bg-[radial-gradient(ellipse_at_top,_#18181B_50%,_#7E22CE_100%,_#3a3a3a_70%,_#1a1a1a_100%)]"
+    >
       <div class="grid grid-cols-2 gap-8 rounded-3xl p-6 overflow-hidden">
-        <TestimonialsCards />
+        {
+          cardsItems.map((item) => (
+            <TestimonialsCards
+              quote={item.quote}
+              img={item.img}
+              name={item.name}
+              social={item.social}
+            />
+          ))
+        }
       </div>
     </div>
   </div>
