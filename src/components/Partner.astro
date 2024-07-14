@@ -1,10 +1,35 @@
 ---
-
+import Button from "./ui/Button.astro";
 ---
 
 <section id="partner" class="flex items-center justify-center p-8">
   <div
     class="relative w-full max-w-7xl mx-auto py-24 lg:py-40 px-8 md:px-12 lg:px-16 xl:px-40"
   >
+    <div
+      class="absolute left-1/2 h-px w-4/5 max-w-[500px] -translate-x-1/2 bg-[linear-gradient(90deg,_rgba(0,0,0,0)_0%,_rgba(168,85,247,0.65)_50%,_rgba(0,0,0,0)_100%)]"
+    >
+    </div>
+    <div class="mb-24 mt-16 text-xl text-center tracking-tight">
+      <span class="text-purple-500">Build with Astro.</span>
+      <h2 class="mt-6 text-3xl text-slate-50 font-bold">
+        What are you waiting for?
+      </h2>
+      <div class="mt-4">
+        <span class="text-zinc-400"
+          >Get your fast, responsive website up and running in no time with
+          Astro Framework today.</span
+        >
+      </div>
+      <div class="mt-12">
+        <Button variant="shadowHover"
+          >Sign up for free
+          <span
+            class="absolute bottom-0 left-4 h-px bg-gradient-to-l from-purple-500/0 via-purple-500/90 to-purple-500/0 transition-opacity duration-500 group-hover:opacity-100 w-[calc(100%-2.25rem)]"
+          >
+          </span></Button
+        >
+      </div>
+    </div>
   </div>
 </section>
