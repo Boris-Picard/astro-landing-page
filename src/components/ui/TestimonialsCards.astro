@@ -11,7 +11,7 @@ interface Props {
 const { quote, img, name, job } = Astro.props as Props;
 ---
 
-<div class="bg-zinc-900 text-slate-50 p-6 rounded-3xl col-span-1 max-w-md">
+<div class="bg-zinc-900/50 text-slate-50 p-6 rounded-3xl lg:col-span-1 col-span-2 max-w-md animate-scrollUp">
   <q class="text-zinc-400">
     {quote}
   </q>

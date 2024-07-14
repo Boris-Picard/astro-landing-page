@@ -2,6 +2,11 @@
 import TestimonialsCards from "./ui/TestimonialsCards.astro";
 
 import pp1 from "../assets/pp1.jpg";
+import pp2 from "../assets/pp2.jpg";
+import pp3 from "../assets/pp3.jpg";
+import pp4 from "../assets/pp4.jpg";
+import pp5 from "../assets/pp5.jpg";
+import pp6 from "../assets/pp6.jpg";
 
 interface CardsItems {
   quote: string;
@@ -14,7 +19,7 @@ const cardsItems: CardsItems[] = [
   {
     quote: `Astro has revolutionized the way we build our websites. 
     The platform's speed and ease of use are unmatched. Our team couldn't be happier with the results!`,
-    img: pp1,
+    img: pp3,
     name: "Emily R",
     job: "Web Developer at Tech Solutions",
   },
@@ -26,18 +31,32 @@ const cardsItems: CardsItems[] = [
     job: "Lead Engineer at Innovatech",
   },
   {
-    quote:
-      "aiodaoidiaziodaojidijzaiodaidajidadjiadznindiaidoanidiaozndaidnazio",
-    img: pp1,
-    name: "adad",
-    job: "@dadadad",
+    quote: `Astro's features have made our development process so much smoother. 
+      The support team is always responsive and helpful. Highly recommend!`,
+    img: pp4,
+    name: "Samantha T",
+    job: "Product Manager at WebWorks",
   },
   {
-    quote:
-      "aiodaoidiaziodaojidijzaiodaidajidadjiadznindiaidoanidiaozndaidnazio",
-    img: pp1,
-    name: "adad",
-    job: "@dadadad",
+    quote: `The customizable templates and real-time analytics are game changers. 
+      Astro has streamlined our workflow and enhanced our productivity.`,
+    img: pp2,
+    name: "Michael B",
+    job: "CTO at Digital Creations",
+  },
+  {
+    quote: `Switching to Astro was the best decision for our company. 
+    The platform's reliability and performance have exceeded our expectations.`,
+    img: pp5,
+    name: "Laura K",
+    job: "CEO at NextGen Solutions",
+  },
+  {
+    quote: `Astro has drastically improved our development speed and efficiency. 
+    The intuitive interface and robust features have made it our go-to solution for web development.`,
+    img: pp6,
+    name: "David M",
+    job: "Senior Developer at CodeCrafters",
   },
 ];
 ---
@@ -61,18 +80,20 @@ const cardsItems: CardsItems[] = [
       </div>
     </div>
     <div
-      class="mt-6 rounded-3xl bg-[radial-gradient(ellipse_at_top,_#18181B_50%,_#7E22CE_100%)]"
+      class="mt-6 rounded-3xl bg-[radial-gradient(circle_at_top,_#18181B_40%,_#7E22CE_100%)] max-h-[566px] overflow-hidden"
     >
-      <div class="grid grid-cols-2 gap-8 rounded-3xl p-6 overflow-hidden">
+      <div class="grid grid-cols-2 gap-8 rounded-3xl p-6">
         {
-          cardsItems.map((item) => (
-            <TestimonialsCards
-              quote={item.quote}
-              img={item.img}
-              name={item.name}
-              job={item.job}
-            />
-          ))
+          cardsItems
+            .concat(cardsItems)
+            .map((item) => (
+              <TestimonialsCards
+                quote={item.quote}
+                img={item.img}
+                name={item.name}
+                job={item.job}
+              />
+            ))
         }
       </div>
     </div>
