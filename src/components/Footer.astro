@@ -1,4 +1,35 @@
 ---
+interface MenuItems {
+  title: string;
+  li: string[];
+}
 
+const menuItems: MenuItems[] = [
+  {
+    title: "Quick Links",
+    li: ["Home", "Features", "Pricing", "Testimonials", "FAQ"],
+  },
+];
 ---
 
+<div
+  class="relative w-full max-w-7xl mx-auto py-12 lg:py-24 px-8 md:px-12 lg:px-16 xl:px-40 border-t border-white/10"
+>
+  <footer>
+    <div class="grid grid-cols-4"></div>
+    {
+      menuItems.map((item) => (
+        <div class="col-span-1 text-slate-50">
+          <h3>{item.title}</h3>
+          <ul>
+            {item.li.map((li) => (
+              <li>
+                <a href="/">{li}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </footer>
+</div>
