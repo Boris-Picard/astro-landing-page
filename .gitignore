@@ -24,4 +24,4 @@ pnpm-debug.log*
 .idea/
 
 #img
-src/assets/*
+public/*
