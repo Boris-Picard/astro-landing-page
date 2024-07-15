@@ -1,8 +1,8 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/static";
+import svgLoader from "vite-svg-loader";
 
-// https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
   vite: {
