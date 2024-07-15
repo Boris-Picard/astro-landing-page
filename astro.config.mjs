@@ -5,5 +5,5 @@ import vercel from "@astrojs/vercel/static";
 export default defineConfig({
   integrations: [tailwind()],
   output: "static",
-  adapter: vercel({ imageService: true, devImageService: "squoosh" }),
+  adapter: vercel({ imageService: true }),
 });
