@@ -1,4 +1,8 @@
 ---
+import { Image } from "astro:assets";
+
+import logo from "../assets/astro-logo.svg";
+
 interface MenuItems {
   title: string;
   li: string[];
@@ -26,7 +30,7 @@ const menuItems: MenuItems[] = [
 
 <div class="relative w-full max-w-7xl mx-auto py-12 border-t border-white/10">
   <footer>
-    <div class="grid grid-cols-4 gap-8">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
       {
         menuItems.map((item) => (
           <div class="col-span-1 text-slate-50">
@@ -34,13 +38,34 @@ const menuItems: MenuItems[] = [
             <ul class="space-y-4 mt-6">
               {item.li.map((li, index) => (
                 <li class="text-sm relative text-zinc-400 hover:text-slate-50 transition-colors duration-300 ease-in-out">
-                  <a href={item.ref[index]}>{li}</a>
+                  <a href={item.ref[index]} aria-label={`Navigate to ${li}`}>
+                    {li}
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
         ))
       }
+      <div class="flex flex-col space-y-3">
+        <label for="newsletter" class="text-slate-50 font-bold"
+          >Newsletter</label
+        >
+        <small class="text-zinc-400"
+          >Subscribe to our newsletter to get the latest updates and news about
+          Astro Framework.</small
+        >
+        <input
+          id="newsletter"
+          placeholder="Enter your email"
+          type="text"
+          class="h-10 p-3 w-full rounded-3xl"
+        />
+      </div>
     </div>
   </footer>
+  <div
+    class="absolute shadow-[8px_9px_400px_150px_rgba(154,_79,_225,_0.2)] min-w-full"
+  >
+  </div>
 </div>
