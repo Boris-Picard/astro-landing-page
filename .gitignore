@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 #img
 src/assets/*
+
+#vercel
+.vercel
