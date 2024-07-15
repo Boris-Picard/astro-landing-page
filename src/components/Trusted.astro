@@ -1,31 +1,30 @@
 ---
 import { Image } from "astro:assets";
-import astro from "/src/assets/astro-light.svg";
 
 interface ImagesItems {
-  src: ImageMetadata;
+  src: string;
   alt: string;
 }
 
 const imageItems: ImagesItems[] = [
   {
-    src: astro,
+    src: "/public/astro-light.svg",
     alt: "astro logo",
   },
   {
-    src: astro,
+    src: "/public/astro-light.svg",
     alt: "astro logo",
   },
   {
-    src: astro,
+    src: "/public/astro-light.svg",
     alt: "astro logo",
   },
   {
-    src: astro,
+    src: "/public/astro-light.svg",
     alt: "astro logo",
   },
   {
-    src: astro,
+    src: "/public/astro-light.svg",
     alt: "astro logo",
   },
 ];
@@ -54,7 +53,7 @@ const imageItems: ImagesItems[] = [
         {
           imageItems.concat(imageItems).map((item) => (
             <div class="mt-4 flex-shrink-0 ml-8 lg:ml-4 flex-grow lg:flex-grow-0">
-              <Image src={item.src} alt={item.alt} class=" object-contain" />
+              <Image src={item.src} alt={item.alt} class=" object-contain" width={400} height={400} />
             </div>
           ))
         }

@@ -3,8 +3,6 @@ import Button from "./ui/Button.astro";
 
 import { Image } from "astro:assets";
 
-import logo from "/src/assets/astro-logo.svg";
-
 export interface MenuItems {
   title: string;
   path: string;
@@ -42,7 +40,7 @@ const menuItems: MenuItems[] = [
   <nav class="flex p-3 lg:max-w-7xl mx-auto items-center">
     <div class="flex items-center">
       <a href="/"
-        ><Image src={logo} alt="Brand logo" width={36} height={36} /></a
+        ><Image src="/public/astro-logo.svg" alt="Brand logo" width={36} height={36} /></a
       >
     </div>
     <div

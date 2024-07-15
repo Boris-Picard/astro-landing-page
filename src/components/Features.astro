@@ -1,13 +1,6 @@
 ---
 import Cards from "./ui/CardsFeatures.astro";
 
-import settings from "/src/assets/settings.svg";
-import check from "/src/assets/check.svg";
-import secure from "/src/assets/secure.svg";
-import fast from "/src/assets/fast.svg";
-import affordable from "/src/assets/affordable.svg";
-import scalable from "/src/assets/scalable.svg";
-
 interface CardsItem {
   title: string;
   description: string;
@@ -20,42 +13,42 @@ const cardsItem: CardsItem[] = [
     title: "Easy to Use",
     description:
       "Astro makes it simple to build fast, responsive websites with minimal effort. Our intuitive templates and tools help you get started quickly.",
-    src: settings,
+    src: "/public/settings.svg",
     alt: "settings icon",
   },
   {
     title: "Reliable",
     description:
       "Astro provides a stable environment for your web applications, ensuring consistent performance and uptime.",
-    src: check,
+    src: "/public/check.svg",
     alt: "check icon",
   },
   {
     title: "Secure",
     description:
       "Security is a top priority with Astro, incorporating best practices to keep your data and applications safe.",
-    src: secure,
+    src: "/public/secure.svg",
     alt: "secure icon",
   },
   {
     title: "Fast",
     description:
       "With Astro, experience lightning-fast load times and optimized performance for a seamless user experience.",
-    src: fast,
+    src: "/public/fast.svg",
     alt: "fast icon",
   },
   {
     title: "Affordable",
     description:
       "Astro offers cost-effective solutions, making it accessible for developers and businesses of all sizes.",
-    src: affordable,
+    src: "/public/affordable.svg",
     alt: "affordable icon",
   },
   {
     title: "Scalable",
     description:
       "Astro scales effortlessly with your needs, from small projects to large, complex applications.",
-    src: scalable,
+    src: "/public/scalable.svg",
     alt: "scalable icon",
   },
 ];

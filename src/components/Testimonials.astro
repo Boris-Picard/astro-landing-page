@@ -1,16 +1,9 @@
 ---
 import TestimonialsCards from "./ui/TestimonialsCards.astro";
 
-import pp1 from "/src/assets/pp1.jpg";
-import pp2 from "/src/assets/pp2.jpg";
-import pp3 from "/src/assets/pp3.jpg";
-import pp4 from "/src/assets/pp4.jpg";
-import pp5 from "/src/assets/pp5.jpg";
-import pp6 from "/src/assets/pp6.jpg";
-
 interface CardsItems {
   quote: string;
-  img: ImageMetadata;
+  img: string;
   name: string;
   job: string;
 }
@@ -19,42 +12,42 @@ const cardsItems: CardsItems[] = [
   {
     quote: `Astro has revolutionized the way we build our websites. 
     The platform's speed and ease of use are unmatched. Our team couldn't be happier with the results!`,
-    img: pp3,
+    img: "/public/pp3.jpg",
     name: "Emily R",
     job: "Web Developer at Tech Solutions",
   },
   {
     quote: `We transitioned to Astro and have seen a significant improvement in our deployment times. 
       The interactive tools and responsive designs have made a huge difference.`,
-    img: pp1,
+    img: "/public/pp1.jpg",
     name: "John D",
     job: "Lead Engineer at Innovatech",
   },
   {
     quote: `Astro's features have made our development process so much smoother. 
       The support team is always responsive and helpful. Highly recommend!`,
-    img: pp4,
+    img: "/public/pp4.jpg",
     name: "Samantha T",
     job: "Product Manager at WebWorks",
   },
   {
     quote: `The customizable templates and real-time analytics are game changers. 
       Astro has streamlined our workflow and enhanced our productivity.`,
-    img: pp2,
+    img: "/public/pp2.jpg",
     name: "Michael B",
     job: "CTO at Digital Creations",
   },
   {
     quote: `Switching to Astro was the best decision for our company. 
     The platform's reliability and performance have exceeded our expectations.`,
-    img: pp5,
+    img: "/public/pp5.jpg",
     name: "Laura K",
     job: "CEO at NextGen Solutions",
   },
   {
     quote: `Astro has drastically improved our development speed and efficiency. 
     The intuitive interface and robust features have made it our go-to solution for web development.`,
-    img: pp6,
+    img: "/public/pp6.jpg",
     name: "David M",
     job: "Senior Developer at CodeCrafters",
   },
