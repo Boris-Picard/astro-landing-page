@@ -1,6 +1,6 @@
 # 🚀 Astro Landing Page
 
-Modern free Tailwind CSS, Astro landing page template for startups | built with Tailus Themer
+Modern free Tailwind CSS, Astro landing page template for startups
 
 ![Tailus Atom cover](public/hero-page.png)
 
