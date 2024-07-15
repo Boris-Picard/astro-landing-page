@@ -12,16 +12,24 @@ export interface MenuItems {
 
 const menuItems: MenuItems[] = [
   {
-    title: "home",
+    title: "Home",
     path: "/",
   },
   {
-    title: "overview",
-    path: "/overview",
+    title: "Features",
+    path: "#features",
   },
   {
-    title: "components",
-    path: "/components",
+    title: "Pricing",
+    path: "#pricing",
+  },
+  {
+    title: "Testimonials",
+    path: "#testimonials",
+  },
+  {
+    title: "FAQ",
+    path: "#faq",
   },
 ];
 ---
@@ -38,7 +46,7 @@ const menuItems: MenuItems[] = [
       >
     </div>
     <div
-      class="relative flex flex-col w-1/4 p-3 mx-auto bg-black/10 border border-white/10 shadow-md backdrop-blur-xl backdrop-filter rounded-xl md:rounded-full md:items-center md:justify-between md:flex-row md:px-6"
+      class="relative flex flex-col w-1/4 p-3 py-4 mx-auto bg-black/10 border border-white/10 shadow-md backdrop-blur-xl backdrop-filter rounded-xl md:rounded-full md:items-center md:justify-between md:flex-row md:px-6"
     >
       <ul
         class="space-y-2 md:space-y-0 text-xs text-slate-50 items-center w-full md:inline-flex justify-center text-center gap-3"
