@@ -2,34 +2,45 @@
 interface MenuItems {
   title: string;
   li: string[];
+  ref: string[];
 }
 
 const menuItems: MenuItems[] = [
   {
     title: "Quick Links",
     li: ["Home", "Features", "Pricing", "Testimonials", "FAQ"],
+    ref: ["/home", "/features", "/pricing", "/testimonials", "/faq"],
+  },
+  {
+    title: "Resources",
+    li: ["Documentation", "Blog", "Community", "Support"],
+    ref: ["/documentation", "/blog", "/community", "/support"],
+  },
+  {
+    title: "Connect with Us",
+    li: ["Facebook", "Twitter", "LinkedIn", "GitHub"],
+    ref: ["/facebook", "/twitter", "/linkedin", "/github"],
   },
 ];
 ---
 
-<div
-  class="relative w-full max-w-7xl mx-auto py-12 lg:py-24 px-8 md:px-12 lg:px-16 xl:px-40 border-t border-white/10"
->
+<div class="relative w-full max-w-7xl mx-auto py-12 border-t border-white/10">
   <footer>
-    <div class="grid grid-cols-4"></div>
-    {
-      menuItems.map((item) => (
-        <div class="col-span-1 text-slate-50">
-          <h3>{item.title}</h3>
-          <ul>
-            {item.li.map((li) => (
-              <li>
-                <a href="/">{li}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))
-    }
+    <div class="grid grid-cols-4 gap-8">
+      {
+        menuItems.map((item) => (
+          <div class="col-span-1 text-slate-50">
+            <h3 class="font-semibold text-lg text-slate-50">{item.title}</h3>
+            <ul class="space-y-4 mt-6">
+              {item.li.map((li, index) => (
+                <li class="text-sm relative text-zinc-400 hover:text-slate-50 transition-colors duration-300 ease-in-out">
+                  <a href={item.ref[index]}>{li}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
   </footer>
 </div>
